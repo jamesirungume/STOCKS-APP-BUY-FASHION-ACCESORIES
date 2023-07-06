@@ -1,0 +1,176 @@
+{
+    "shoeHats": [
+      {
+        "id": "1",
+        "type": "shoe",
+        "name": "Jordan 4",
+        "price": 3500,
+        "imgPath": "https://www.complex.com/sneakers/a/cmplxvictor-deng/air-jordan-4-iv-retro-tour-yellow-multi-color-multi-color-dark-blue-grey-release-date-ct8527-700"
+      },
+      {
+        "id": "2",
+        "type": "shoe",
+        "name": "customised AF1",
+        "price": "2000",
+        "imgPath": "https://www.ebay.com/itm/185889580531"
+      },
+      {
+        "id": "3",
+        "type": "shoe",
+        "name": "black J4",
+        "price": 3000,
+        "imgPath": "https://killakustomsz.co.uk/products/copy-of-red-thunder-j4"
+      },
+      {
+        "id": "4",
+        "type": "shoe",
+        "name": "black AF1",
+        "price": 2500,
+        "imgPath": "https://www.shopwss.com/products/cw2288_001"
+      },
+      {
+        "id": "5",
+        "type": "hat",
+        "name": "new Era",
+        "price": 500,
+        "imgPath": "https://www.fittedhats.com/products/new-era-x-lids-hd-tampa-bay-rays-classic-camel-2022-59fifty-fitted-cap"
+      },
+      {
+        "id": "6",
+        "type": "hat",
+        "name": "cap",
+        "price": 300,
+        "imgPath": "https://www.famcapstore.com/products/682-59fifty-mlb-authentic-tampa-bay-rays-team-fitted-cap"
+      },
+      {
+        "id": "7",
+        "type": "hat",
+        "name": "tampa bay",
+        "price": 400,
+        "imgPath": "https://www.ebay.com/itm/304543669363"
+      },
+      {
+        "id": "8",
+        "type": "hat",
+        "name": "clasic cap",
+        "price": 350,
+        "imgPath": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.tradeinn.com%2Ff%2F13752%2F137524995_2%2Fnew-era-tampa-bay-rays-mlb-authentic-collection-59fifty-cap.jpg&tbnid=ie3TRlRDfHtzkM&vet=10CAIQxiAoAGoXChMIsNGzvLD4_wIVAAAAAB0AAAAAEAY..i&imgrefurl=https%3A%2F%2Fwww.tradeinn.com%2Fdressinn%2Ffi%2Fnew-era-tampa-bay-rays-mlb-authentic-collection-59fifty-cap%2F137524995%2Fp&docid=nScg24Q775_XWM&w=1000&h=1000&itg=1&q=New%20Era%20Tampa%20Bay%20Rays&ved=0CAIQxiAoAGoXChMIsNGzvLD4_wIVAAAAAB0AAAAAEAY"
+      }
+    ] ,
+    "suitsWatches": [
+        {
+            "id": "1" ,
+            "type": "suits" ,
+            "name": "pure black suit" ,
+            "price": 9000 ,
+            "imgPath": "https://pomandi.com/en/products/all-black-suit"
+        },
+        {
+            "id": "2",
+            "type": "suit",
+            "name": "Classic Black Suit",
+            "price": 5000,
+            "imgPath": "https://www.suitdirect.com/p-scott-by-the-label-black-classic-jacket-16743"
+        },
+       {
+            "id": "3",
+            "type": "suit",
+            "name": "Navy Blue Suit",
+            "price": 4500,
+            "imgPath": "https://www.groovygroomsmengifts.com/blogs/news/navy-blue-groomsmen-suits"
+          },
+          {
+            "id": "4",
+            "type": "suit",
+            "name": "Grey Checkered Suit",
+            "price": 4000,
+            "imgPath": "https://santoromilan.com/products/ross-grey-check-three-piece-suit"
+          },
+          {
+            "id": "5",
+            "type": "watch",
+            "name": "Leather Strap Watch",
+            "price": 1500,
+            "imgPath": "https://www.amazon.co.uk/Leather-Military-Chronograph-Waterproof-Wristwatch/dp/B07DJ6YQSZ"
+          },
+          {
+            "id": "6",
+            "type": "watch",
+            "name": "Metal Bracelet Watch",
+            "price": 2000,
+            "imgPath": "https://www.geckota.com/collections/stainless-steel-watch-straps-bracelets"
+          },
+          {
+            "id": "7",
+            "type": "watch",
+            "name": "Sporty Chronograph Watch",
+            "price": 1800,
+            "imgPath": "https://monochrome-watches.com/porsche-design-sports-chrono-automatic-chronograph-hands-on-price/"
+          }
+        ] ,
+        "jacketTrouser": [
+          {
+            "id": "1",
+            "type": "LV jacket",
+            "name": "Classic Navy Blue Suit",
+            "price": 6000,
+            "imgPath": "https://stockx.com/louis-vuitton-varsity-leather-jacket-green"
+          },
+          {
+            "id": "2",
+            "type": "jacket",
+            "name": "Deanim jacket",
+            "price": 5500,
+            "imgPath": "https://shangrilaheritage.it/product/terracotta-brown-suede-jacket/"
+          },
+          {
+            "id": "3",
+            "type": "jacket",
+            "name": "black jacket",
+            "price": 5200,
+            "imgPath": "https://www.jumia.co.ke/generic-mens-baseball-jacket-autumn-fashion-cool-outwear-jacket-patchwork-stand-collar-casual-slim-fit-jackets-and-coats-for-men-54209149.html"
+          },
+          {
+            "id": "4",
+            "type": "jacket",
+            "name": "Black Tuxedo",
+            "price": 7000,
+            "imgPath": "https://www.usajacket.com/product/power-tommy-egan-long-coat/"
+          },
+          {
+            "id": "5",
+            "type": "Trouser",
+            "name": "grey jeans",
+            "price": 4500,
+            "imgPath": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81O4AOUpXfS._AC_UL1500_.jpg&tbnid=1mCuwTOEzA-GKM&vet=12ahUKEwjLoOi8v_j_AhUysUwKHSbhCbUQMyg8egQIARB9..i&imgrefurl=https%3A%2F%2Fwww.nepal.ubuy.com%2Fen%2Fproduct%2F1HPM1HE6E-cinyanjian-mens-jeans-ripped-jeans-for-men-distressed-denim-jeans-destroyed-slim-fit-jeans-elastic-denim-pants-trousers-blue-size-40&docid=n2I46jVrQmLRgM&w=703&h=1500&q=cool%20jeans&ved=2ahUKEwjLoOi8v_j_AhUysUwKHSbhCbUQMyg8egQIARB9"
+          },
+          {
+            "id": "6",
+            "type": "Trouser",
+            "name": "baggy jacket",
+            "price": 5800,
+            "imgPath": "https://www.etsy.com/market/mens_baggy_jeans"
+          },
+          {
+            "id": "7",
+            "type": "Trouser",
+            "name": "cargo trouser",
+            "price": 5200,
+            "imgPath": "https://www.lestyleparfait.co.ke/products/streetwear-cargo-sweatpants"
+          },
+          {
+            "id": "8",
+            "type": "Trouser",
+            "name": "runing pants",
+            "price": 6300,
+            "imgPath": "https://www.sixtytwo.gr/en/nike-dri-fit-challenger-woven-running-pants-dd4894-010.html"
+          }
+        ]
+        
+
+      }
+      
+    
+
+  
+  

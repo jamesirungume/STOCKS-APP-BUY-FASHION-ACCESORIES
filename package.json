@@ -1,0 +1,19 @@
+{
+  "name": "stocks",
+  "version": "1.0.0",
+  "description": "buy fashion accesories",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesirungume/STOCKS-APP-BUY-FASHION-ACCESORIES.git"
+  },
+  "author": "james irungu.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamesirungume/STOCKS-APP-BUY-FASHION-ACCESORIES/issues"
+  },
+  "homepage": "https://github.com/jamesirungume/STOCKS-APP-BUY-FASHION-ACCESORIES#readme"
+}
