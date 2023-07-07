@@ -28,40 +28,87 @@ document.addEventListener("DOMContentLoaded", () => {
         <img class="image" src="${imgPath}" alt="${name}">
         <p class="item-name">${name}</p>
         <p class="item-price">$${price}</p>
-        <button class="mybtn">add to cart</button>
+        <button class="mybtn">Add to Cart</button>
       `;
       const clickbtn = itemElement.querySelector(".mybtn");
-      clickbtn.addEventListener("click", () => {
-       console.log(name);
-       addCart(name, price);
+      clickbtn.addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent default form submission behavior
+        addCart(event, name, price); // Pass the event object to addCart function
       });
 
       displayContainer.appendChild(itemElement);
     });
   }
 
-  function addCart(name, price) {
-     const createItem = { name, price };
-     createCart.push(createItem);
-     displayCarts(name, price);
+  function addCart(event, name, price) {
+    event.preventDefault(); // Prevent default button behavior (form submission or link navigation)
+    const createItem = { name, price };
+    createCart.push(createItem);
+    displayCarts();
+    serverUpdate(createCart); // Pass the createCart array to the serverUpdate function
   }
 
-  function displayCarts(name, price) {
-    const displayCarts = document.createElement("div");
-    displayCarts.classList.add("cart-item");
-    displayCarts.innerHTML = `<p class="name">Name: ${name}</p> <p class="price">Price: ${price}</p>`;
-    document.querySelector("#display1").appendChild(displayCarts);
+  function displayCarts() {
+    const display1 = document.querySelector("#display1");
+    display1.innerHTML = "<h2>Recently Added Carts</h2>";
+
+    createCart.forEach((item) => {
+      const displayCarts = document.createElement("div");
+      displayCarts.classList.add("cart-item");
+      displayCarts.innerHTML = `<p class="name">Name: ${item.name}</p> <p class="price">Price: ${item.price}</p>`;
+      display1.appendChild(displayCarts);
+    });
   }
-  
-  shoehat.addEventListener("click", () => {
+
+  function serverUpdate(cartItems) {
+    fetch("http://localhost:3000/cartItems", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(cartItems)
+    })
+      .then((resp) => {
+        if (resp.ok) {
+          console.log("Successful");
+          return resp.json(); // Return the JSON response to be used in the next `.then()`
+        } else {
+          console.log("Unsuccessful");
+        }
+      })
+      .then((data) => {
+        // Handle the response data if needed
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error serving:", error);
+      });
+  }
+
+  const btn1 = document.getElementById("btn1");
+  btn1.addEventListener("click", (event) => {
+    event.preventDefault();
     fetchItems("shoehats");
   });
 
-  suitwatches.addEventListener("click", () => {
+  const btn2 = document.getElementById("btn2");
+  btn2.addEventListener("click", (event) => {
+    event.preventDefault();
+    fetchItems("jackettrouser");
+  });
+
+  shoehat.addEventListener("click", (event) => {
+    event.preventDefault();
+    fetchItems("shoehats");
+  });
+
+  suitwatches.addEventListener("click", (event) => {
+    event.preventDefault();
     fetchItems("suitswatches");
   });
 
-  jackettrouser.addEventListener("click", () => {
+  jackettrouser.addEventListener("click", (event) => {
+    event.preventDefault();
     fetchItems("jackettrouser");
   });
 });
