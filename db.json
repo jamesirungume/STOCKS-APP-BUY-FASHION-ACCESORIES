@@ -167,11 +167,6 @@
     }
   ],
   "cartItems": [
-    {
-      "id": "1",
-      "name": "bangles",
-      "price": 300
-    },
     [
       {
         "id": "1",
@@ -1537,6 +1532,114 @@
         "id": "4",
         "name": "Grey Checkered Suit",
         "price": 4000
+      }
+    ],
+    [
+      {
+        "name": "Jordan 4",
+        "price": 3500
+      }
+    ],
+    [
+      {
+        "name": "Classic Navy Blue Suit",
+        "price": 6000
+      }
+    ],
+    [
+      {
+        "name": "Jordan 4",
+        "price": 3500
+      }
+    ],
+    [
+      {
+        "name": "Jordan 4",
+        "price": 3500
+      }
+    ],
+    [
+      {
+        "name": "Deanim jacket",
+        "price": 5500
+      }
+    ],
+    [
+      {
+        "name": "Classic Navy Blue Suit",
+        "price": 6000
+      }
+    ],
+    [
+      {
+        "name": "Jordan 4",
+        "price": 3500
+      }
+    ],
+    [
+      {
+        "name": "Classic Navy Blue Suit",
+        "price": 6000
+      }
+    ],
+    [
+      {
+        "name": "Classic Navy Blue Suit",
+        "price": 6000
+      }
+    ],
+    [
+      {
+        "name": "Jordan 4",
+        "price": 3500
+      }
+    ],
+    [
+      {
+        "name": "Classic Navy Blue Suit",
+        "price": 6000
+      }
+    ],
+    [
+      {
+        "name": "Jordan 4",
+        "price": 3500
+      }
+    ],
+    [
+      {
+        "name": "Jordan 4",
+        "price": 3500
+      }
+    ],
+    [
+      {
+        "name": "Jordan 4",
+        "price": 3500
+      }
+    ],
+    [
+      {
+        "name": "Jordan 4",
+        "price": 3500
+      }
+    ],
+    [
+      {
+        "name": "Jordan 4",
+        "price": 3500
+      }
+    ],
+    [
+      {
+        "name": "Jordan 4",
+        "price": 3500
+      }
+    ],
+    [
+      {
+        "name": "Jordan 4",
+        "price": 3500
       }
     ]
   ]

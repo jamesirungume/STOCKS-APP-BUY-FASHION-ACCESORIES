@@ -116,12 +116,13 @@
     position: relative;
     left: 400px;
     gap: 90px;
+    border-radius: 9px;
 
   }
   .pics2 > img {
     width: 50%;
     height: 235px;
-   
+    border-radius: 9px;
     
     }  
   #overall {
@@ -160,7 +161,7 @@
   }
   #footer > p {
     position: relative;
-    bottom: 19px;
+    bottom: 10px;
   }
   #category > p {
     position: relative;
@@ -359,4 +360,41 @@
    bottom: 4190px;
 
 }
+.input-field {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  bor der: 1px solid #ccc;
+  border-radius: 4px;
+  width: 600px;
+  position: relative;
+  bottom: 1300px;
+  left: 950px;
+  
+
+}
+
+.signup-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  bottom: 1300px;
+  left: 950px;
+}
+
+.signup-button:hover {
+  background-color: #45a049;
+}
+#alc {
+  height: 1300px;
+  width: 500px;
+  background-color: #000000;
+}
+
+
 

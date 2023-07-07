@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     displayContainer.innerHTML = "";
 
     data.forEach((item) => {
-      const { name, price, imgPath } = item;
+      const { id, name, price, imgPath } = item;
       const itemElement = document.createElement("div");
       itemElement.classList.add("item");
       itemElement.innerHTML = `
@@ -33,16 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const clickbtn = itemElement.querySelector(".mybtn");
       clickbtn.addEventListener("click", (event) => {
         event.preventDefault(); // Prevent default form submission behavior
-        addCart(event, name, price); // Pass the event object to addCart function
+        addCart(event, id, name, price); // Pass the event object and item ID to addCart function
       });
 
       displayContainer.appendChild(itemElement);
     });
   }
 
-  function addCart(event, name, price) {
+  function addCart(event, id, name, price) {
     event.preventDefault(); // Prevent default button behavior (form submission or link navigation)
-    const createItem = { name, price };
+    event.stopPropagation(); // Stop event propagation
+
+    const createItem = { id, name, price };
     createCart.push(createItem);
     displayCarts();
     serverUpdate(createCart); // Pass the createCart array to the serverUpdate function
@@ -50,23 +52,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function displayCarts() {
     const display1 = document.querySelector("#display1");
-    display1.innerHTML = "<h2>Recently Added Carts</h2>";
+    
 
     createCart.forEach((item) => {
       const displayCarts = document.createElement("div");
       displayCarts.classList.add("cart-item");
-      displayCarts.innerHTML = `<p class="name">Name: ${item.name}</p> <p class="price">Price: ${item.price}</p>`;
+      displayCarts.innerHTML = `
+        <p class="name">Name: ${item.name}</p>
+        <p class="price">Price: ${item.price}</p>
+        <button class="delete-btn">Delete</button>
+      `;
+      const deleteBtn = displayCarts.querySelector(".delete-btn");
+      deleteBtn.addEventListener("click", () => {
+        deleteCartItem(item.id);
+      });
+
       display1.appendChild(displayCarts);
     });
   }
 
-  function serverUpdate(cartItems) {
-    fetch("http://localhost:3000/cartItems", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(cartItems)
+  function deleteCartItem(itemId) {
+    // Find the index of the item to be deleted
+    const index = createCart.findIndex((item) => item.id === itemId);
+    if (index !== -1) {
+      createCart.splice(index, 1); // Remove the item from the createCart array
+      displayCarts(); // Update the displayed carts
+      serverDelete(itemId); // Delete the item from the server
+    }
+  }
+
+  function serverDelete(itemId) {
+    fetch(`http://localhost:3000/cartItems/${itemId}`, {
+      method: "DELETE"
     })
       .then((resp) => {
         if (resp.ok) {
@@ -111,4 +128,17 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     fetchItems("jackettrouser");
   });
+  const signUp = document.querySelector("#sign");
+signUp.addEventListener('click', () => {
+  const alc = document.querySelector('#display2');
+  const myacc = document.createElement("div");
+  myacc.innerHTML = `
+    <input class="input-field" type="text" placeholder="Username">
+    <input class="input-field" type="password" placeholder="Password">
+    <button class="signup-button">Sign Up</button>`;
+   
+  alc.appendChild(myacc);
+});
+
+  
 });
