@@ -166,7 +166,16 @@
             "price": 6300,
             "imgPath": "https://www.sixtytwo.gr/pub/media/catalog/product/cache/5c05fe1e6d22f4050f01c675311313d0/d/d/dd4894-010-10.jpg"
           }
+        ],
+        "cartItems": [
+          {
+            "name": "bangles"
+            "price": 300
+          }
+          
+
         ]
+        
         
 
       }

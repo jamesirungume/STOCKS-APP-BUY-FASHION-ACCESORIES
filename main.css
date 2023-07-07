@@ -200,6 +200,23 @@
   background-color: #CCCCCC;
   color: #FFFFFF;
 }
+.mybtn{
+
+ background-color: #F0F0F0;
+  color: #000000;
+  font-size: 16px;
+ border-radius: 5px;
+ border: none;
+ padding: 10px 20px;
+ cursor: pointer;
+ position: relative;
+ bottom: 9px;
+}
+.mybtn:hover {
+  /* CSS properties for the button when hovered */
+  background-color: #CCCCCC;
+  color: #FFFFFF;
+}
 #category > h2 {
   position: relative;
   left: 30px;
@@ -270,8 +287,30 @@
   bottom: 10px;
 }
 #display1 {
-  background-color: #000000;
-  width: 600px;
-  height: 900px;position: inherit;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 800px;
+  position: relative;
+  left: 1280px;
+  bottom: 4100px;
+}
 
+.cart-item {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 10px;
+  flex-basis: 25%; /* Adjust the width as needed */
+}
+
+.cart-item p {
+  margin: 5px 0;
+}
+
+.cart-item .name {
+  font-weight: bold;
+}
+
+.cart-item .price {
+  color: green;
 }
