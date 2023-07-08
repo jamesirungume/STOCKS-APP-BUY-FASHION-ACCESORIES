@@ -51,36 +51,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function displayCarts() {
     const display1 = document.querySelector("#display1");
-    display1.innerHTML = ""; // Clear the display container before re-populating
-
+    display1.innerHTML = ""; // Clear existing cart items
     createCart.forEach((item, index) => {
       const displayCarts = document.createElement("div");
       displayCarts.classList.add("cart-item");
       displayCarts.innerHTML = `
         <p class="name">Name: ${item.name}</p>
         <p class="price">Price: ${item.price}</p>
-        <button class="delete-btn">Delete</button>
+        <button class="delete-btn" data-index="${index}">Delete</button>
       `;
-
-      // Add event listener to the delete button
-      const deleteButton = displayCarts.querySelector(".delete-btn");
-      deleteButton.addEventListener("click", () => {
-        createCart.splice(index, 1); // Remove the item from the createCart array
-        displayCarts.remove(); // Remove the cart item from the display
-        serverUpdate(); // Update the server with the modified cart items
-      });
-
       display1.appendChild(displayCarts);
     });
+
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+    deleteButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const index = event.target.dataset.index;
+        deleteCartItem(index);
+      });
+    });
+  }
+
+  function deleteCartItem(index) {
+    createCart.splice(index, 1);
+    displayCarts();
+    serverUpdate();
   }
 
   function serverUpdate() {
     return fetch("https://stocks-web-service-5w6t.onrender.com/cartItems", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(createCart)
+      body: JSON.stringify(createCart),
     })
       .then((resp) => {
         if (resp.ok) {
@@ -93,10 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Error serving:", error);
       });
   }
-  
+
   const signUp = document.querySelector("#sign");
-  signUp.addEventListener('click', () => {
-    const alc = document.querySelector('#display2');
+  signUp.addEventListener("click", () => {
+    const alc = document.querySelector("#display2");
     const myacc = document.createElement("div");
     myacc.innerHTML = `
       <input type="text" placeholder="Username" id="signin" class="input-field">
@@ -133,5 +137,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   jackettrouser.addEventListener("click", () => {
     fetchItems("jackettrouser");
+  });
+
+  const helpButton = document.querySelector("#help");
+  helpButton.addEventListener("click", () => {
+    const contactNumber = "123-456-7890";
+    const email = "example@example.com";
+    alert(`Contact Number: ${contactNumber}\nEmail: ${email}`);
   });
 });
