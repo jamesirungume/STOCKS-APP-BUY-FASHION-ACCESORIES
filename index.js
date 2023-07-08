@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const createCart = [];
 
   function fetchItems(category) {
-    return fetch(`http://localhost:3000/${category}`)
+    return fetch(`https://stocks-web-service-5w6t.onrender.com/${category}`)
       .then((resp) => resp.json())
       .then((stormdata) => {
         console.log(stormdata);
@@ -21,40 +21,39 @@ document.addEventListener("DOMContentLoaded", () => {
     displayContainer.innerHTML = "";
 
     data.forEach((item) => {
-      const { id, name, price, imgPath } = item;
+      const { name, price, imgPath } = item;
       const itemElement = document.createElement("div");
       itemElement.classList.add("item");
       itemElement.innerHTML = `
         <img class="image" src="${imgPath}" alt="${name}">
         <p class="item-name">${name}</p>
         <p class="item-price">$${price}</p>
-        <button class="mybtn">Add to Cart</button>
+        <input type="button" class="mybtn" value="Add to Cart">
       `;
-      const clickbtn = itemElement.querySelector(".mybtn");
-      clickbtn.addEventListener("click", (event) => {
-        event.preventDefault(); // Prevent default form submission behavior
-        addCart(event, id, name, price); // Pass the event object and item ID to addCart function
+      itemElement.addEventListener("click", (event) => {
+        if (event.target.classList.contains("mybtn")) {
+          event.preventDefault(); // Prevent default form submission behavior
+          console.log(name);
+          addCart(name, price);
+        }
       });
 
       displayContainer.appendChild(itemElement);
     });
   }
 
-  function addCart(event, id, name, price) {
-    event.preventDefault(); // Prevent default button behavior (form submission or link navigation)
-    event.stopPropagation(); // Stop event propagation
-
-    const createItem = { id, name, price };
+  function addCart(name, price) {
+    const createItem = { name, price };
     createCart.push(createItem);
     displayCarts();
-    serverUpdate(createCart); // Pass the createCart array to the serverUpdate function
+    serverUpdate();
   }
 
   function displayCarts() {
     const display1 = document.querySelector("#display1");
-    
+    display1.innerHTML = ""; // Clear the display container before re-populating
 
-    createCart.forEach((item) => {
+    createCart.forEach((item, index) => {
       const displayCarts = document.createElement("div");
       displayCarts.classList.add("cart-item");
       displayCarts.innerHTML = `
@@ -62,83 +61,77 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="price">Price: ${item.price}</p>
         <button class="delete-btn">Delete</button>
       `;
-      const deleteBtn = displayCarts.querySelector(".delete-btn");
-      deleteBtn.addEventListener("click", () => {
-        deleteCartItem(item.id);
+
+      // Add event listener to the delete button
+      const deleteButton = displayCarts.querySelector(".delete-btn");
+      deleteButton.addEventListener("click", () => {
+        createCart.splice(index, 1); // Remove the item from the createCart array
+        displayCarts.remove(); // Remove the cart item from the display
+        serverUpdate(); // Update the server with the modified cart items
       });
 
       display1.appendChild(displayCarts);
     });
   }
 
-  function deleteCartItem(itemId) {
-    // Find the index of the item to be deleted
-    const index = createCart.findIndex((item) => item.id === itemId);
-    if (index !== -1) {
-      createCart.splice(index, 1); // Remove the item from the createCart array
-      displayCarts(); // Update the displayed carts
-      serverDelete(itemId); // Delete the item from the server
-    }
-  }
-
-  function serverDelete(itemId) {
-    fetch(`http://localhost:3000/cartItems/${itemId}`, {
-      method: "DELETE"
+  function serverUpdate() {
+    return fetch("https://stocks-web-service-5w6t.onrender.com/cartItems", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(createCart)
     })
       .then((resp) => {
         if (resp.ok) {
           console.log("Successful");
-          return resp.json(); // Return the JSON response to be used in the next `.then()`
         } else {
           console.log("Unsuccessful");
         }
-      })
-      .then((data) => {
-        // Handle the response data if needed
-        console.log(data);
       })
       .catch((error) => {
         console.error("Error serving:", error);
       });
   }
+  
+  const signUp = document.querySelector("#sign");
+  signUp.addEventListener('click', () => {
+    const alc = document.querySelector('#display2');
+    const myacc = document.createElement("div");
+    myacc.innerHTML = `
+      <input type="text" placeholder="Username" id="signin" class="input-field">
+      <input type="password" placeholder="Password" class="input-field">
+      <button class="signup-button">Sign Up</button>`;
+    const signed = document.getElementById("signin");
 
-  const btn1 = document.getElementById("btn1");
-  btn1.addEventListener("click", (event) => {
+    myacc.classList.add("signup-form");
+    alc.appendChild(myacc);
+
+    const btn5 = myacc.querySelector(".signup-button");
+    btn5.onclick = () => {
+      alert("You have been signed in " + signed.value);
+    };
+  });
+
+  document.getElementById("btn1").addEventListener("click", (event) => {
     event.preventDefault();
     fetchItems("shoehats");
   });
 
-  const btn2 = document.getElementById("btn2");
-  btn2.addEventListener("click", (event) => {
+  document.getElementById("btn2").addEventListener("click", (event) => {
     event.preventDefault();
     fetchItems("jackettrouser");
   });
 
-  shoehat.addEventListener("click", (event) => {
-    event.preventDefault();
+  shoehat.addEventListener("click", () => {
     fetchItems("shoehats");
   });
 
-  suitwatches.addEventListener("click", (event) => {
-    event.preventDefault();
+  suitwatches.addEventListener("click", () => {
     fetchItems("suitswatches");
   });
 
-  jackettrouser.addEventListener("click", (event) => {
-    event.preventDefault();
+  jackettrouser.addEventListener("click", () => {
     fetchItems("jackettrouser");
   });
-  const signUp = document.querySelector("#sign");
-signUp.addEventListener('click', () => {
-  const alc = document.querySelector('#display2');
-  const myacc = document.createElement("div");
-  myacc.innerHTML = `
-    <input class="input-field" type="text" placeholder="Username">
-    <input class="input-field" type="password" placeholder="Password">
-    <button class="signup-button">Sign Up</button>`;
-   
-  alc.appendChild(myacc);
-});
-
-  
 });

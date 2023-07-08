@@ -1,5 +1,7 @@
 # STOCKS-APP-BUY-FASHION-ACCESORIES
 buy fashion accesrories e.g watches,shoes
+ **for the server use the depployed server "hhttps://stocks-web-service-5w6t.onrender.com"
+**
 # My Business Website
 
 This is a business website showcasing various products and allowing users to add items to their cart.
@@ -32,8 +34,7 @@ The purpose of this project is to provide an online platform for showcasing and 
 
 ## Usage
 
-1. Start the server: `npm start`
-2. Open the website in your browser: `http://localhost:3000`
+1. for the server use the depployed server "hhttps://stocks-web-service-5w6t.onrender.com"
 
 ## Contributing
 
